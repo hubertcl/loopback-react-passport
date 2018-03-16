@@ -1,6 +1,17 @@
 {
   "db": {
     "name": "db",
-    "connector": "memory"
+    "connector": "memory",
+    "file": "db.json"
+  },
+  "mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "lb_test",
+    "password": "",
+    "name": "mysql",
+    "user": "root",
+    "connector": "mysql"
   }
 }

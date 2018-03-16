@@ -18,8 +18,11 @@
     "jade": "^1.7.0",
     "loopback": "^3.0.0",
     "loopback-boot": "^2.0.0",
+    "loopback-component-explorer": "^2.1.0",
     "loopback-component-passport": "^2.2.0",
-    "passport": "^0.2.0",
+    "loopback-connector-mysql": "^5.2.0",
+    "passport": "^0.4.0",
+    "passport-azure-ad": "^3.0.12",
     "passport-facebook": "^1.0.3",
     "passport-google-oauth": "^0.1.5",
     "passport-ldapauth": "^0.4.0",
@@ -27,8 +30,7 @@
     "passport-oauth2": "^1.1.2",
     "passport-twitter": "^1.0.2",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^1.1.0",
-    "loopback-component-explorer": "^2.1.0"
+    "strong-error-handler": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^2.5.3",
