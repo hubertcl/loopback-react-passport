@@ -18,11 +18,10 @@ class Login extends Component{
 		axios.post('http://localhost:3000/api/users/login',
 			credentials
 		).then(response => {
-            console.log(response.data.id);
 			setAccessToken(response.data.id);
 			//const cookies = new Cookies();
 			//cookies.set('access_token',response.data.id);
-			this.props.history.push('/');
+			this.props.history.push('/meetups');
 		}).catch(err => console.log(err));
 	}
 
@@ -39,8 +38,23 @@ class Login extends Component{
 		window.location="http://localhost:3000/auth/facebook";
 	}
 
+	loginAzure(){
+		window.location="http://localhost:3000/auth/deloitte-azure-ad";
+	}
+
+	loginGoogle() {
+		window.location="http://localhost:3000/auth/google";
+	}
+
 	handleClick(e) {
-		this.loginFacebook();
+		console.log("Target click "+e.target.value);
+		if (e.target.value === "facebook") {
+			this.loginFacebook();
+		} else if (e.target.value === "google") {
+			this.loginGoogle();
+		} else if (e.target.value === "azure") {
+			this.loginAzure();
+		}
 		e.preventDefault();
 	}
 
@@ -59,14 +73,19 @@ class Login extends Component{
 						<input type="password" name="password" ref="password" />
 						<label htmlFor="password" >Password</label>
 					</div>
-					<input type="submit" value="Login to Wonderland" className="btn waves-effect waves-light" />
+					<input type="submit" value="Sign in to Wonderland" className="btn waves-effect waves-light" />
 				</form>
 				<br/>
-                <button className="btn waves-effect waves-light" onClick={this.handleClick.bind(this)}>
-					Login with Facebook
+                <button className="btn waves-effect waves-light" onClick={this.handleClick.bind(this)} value="facebook">
+					Sign in using Facebook
+				</button><br/><br/>
+				<button className="btn waves-effect waves-light" onClick={this.handleClick.bind(this)} value="google">
+					Sign in using Google
+				</button><br/><br/>
+				<button className="btn waves-effect waves-light" onClick={this.handleClick.bind(this)} value="azure">
+					Sign in using Deloitte Azure AD
 				</button>
-
-				
+				<script src="https://apis.google.com/js/platform.js" async defer></script>
 			</div>
 		)
 	}

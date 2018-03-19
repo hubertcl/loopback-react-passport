@@ -12,8 +12,7 @@ constructor(){
 }
 
 componentWillMount(){
-    console.log(">>>>>>>>>>")
-    const access_token = getAccessToken()
+    var access_token = getAccessToken();
     console.log(">>>>>>>>>>>> GET ACCESS TOKEN "+access_token);
     this.getMeetups(access_token);
 }
@@ -22,11 +21,17 @@ getMeetups(access_token) {
     console.log("try to get meetups");
     axios.get('http://localhost:3000/api/meetups?access_token='+access_token)
         .then(response => {
-            console.log("response.data")
+            console.log(response.data)
             this.setState({meetups: response.data},()=>{
-                console.log(this.state);
+                console.log(">>>>> STATE >>>>>"+this.state);
             })
         })
+        .catch(function (error) {
+            if (error.response.status === 401){
+
+            }
+        });
+        
 }
 
     render() {

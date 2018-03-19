@@ -10,7 +10,7 @@ import Login from './Login';
 const Main = () => (
     <main>
         <Switch>
-        <Route exact path='/' component={Meetups} />
+        <Route exact path='/meetups' component={Meetups} />
 			<Route exact path='/about' component={About} />
 			<Route exact path='/meetups/add' component={AddMeetup} />
 			<Route exact path='/meetups/edit/:id' component={EditMeetup} />

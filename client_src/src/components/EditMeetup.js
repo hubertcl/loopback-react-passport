@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { getAccessToken } from '../services/AuthAccess'
+import { access } from 'fs';
 
 class EditMeetup extends Component{
 
@@ -17,13 +19,14 @@ class EditMeetup extends Component{
 	}
 
 	componentWillMount(){
-		this.getMeetupDetails();
+		var access_token = getAccessToken();
+		this.getMeetupDetails(access_token);
 	}
 
-	getMeetupDetails(){
+	getMeetupDetails(access_token){
 		let meetupId = this.props.match.params.id;
 		console.log(meetupId);
-		axios.get(`http://localhost:3000/api/meetups/${meetupId}`)
+		axios.get(`http://localhost:3000/api/meetups/${meetupId}?access_token=${access_token}`)
 			.then(response => {
 				this.setState({
 					id:response.data.id,

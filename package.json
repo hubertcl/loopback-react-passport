@@ -28,6 +28,7 @@
     "passport-ldapauth": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-oauth2": "^1.1.2",
+    "passport-saml": "^0.33.0",
     "passport-twitter": "^1.0.2",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^1.1.0"

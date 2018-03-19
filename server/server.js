@@ -37,9 +37,15 @@ var flash      = require('express-flash');
 var config = {};
 try {
   config = require('../providers.json');
+  for (var s in config) {
+    var c = config[s];
+    c.session = c.session !== false;
+    console.log(">>>>> providers/passport config " + s + " " +c);
+  }
 } catch (err) {
   console.trace(err);
   process.exit(1); // fatal
+
 }
 
 // -- Add your pre-processing middleware here --
